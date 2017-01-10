@@ -1,5 +1,5 @@
 html body {
-    background: #2980b9;
+    background: black;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -15,11 +15,9 @@ hr {
 
 #slider {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    background: rgba(0, 0, 0, 0.8);
-
+    width: 99%;
+    height: 80%;
+    background: rgba( 169, 169, 169, 0.8);
 }
 
 #sliderHolder {
@@ -30,23 +28,20 @@ hr {
 #sliderHolder img {
     max-width: 500px;
     max-height: 450px;
-    margin: 50px auto;
+    margin-left: 34%;
+    margin-top: 2%;
     display: block;
 }
 
-#leftJump {
-    color: #2980b9;
-    float: left;
-    font-size: 100px;
-    margin-left: 50px;
-    cursor: pointer;
+#arrows {
+    text-align: center;
+    margin-top: 120px;
 }
 
-#rightJump {
-    color: #2980b9;
-    float: right;
+#rightJump, #leftJump {
+    position: relative;
+    color: white;
     font-size: 100px;
-    margin-right: 50px;
     cursor: pointer;
 }
 
@@ -54,7 +49,7 @@ hr {
     float: right;
     margin-right: 50px;
     font-size: 100px;
-    color: #2980b9;
+    color: white;
     cursor: pointer;
 }
 
@@ -65,17 +60,13 @@ hr {
 }
 
 ul {
+    display: flex;
+    justify-content: space-around;
     list-style: none;
 }
 
 ul img {
-    display: inline;
     width: 200px;
     height: 150px;
-    margin-left: 40px;
-}
-
-ul li {
-    display: inline;
-    margin: auto;
+    cursor: pointer;
 }

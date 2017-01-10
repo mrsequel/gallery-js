@@ -29,6 +29,7 @@ class Gallery {
         this.$close.addEventListener('click', this._toggleSlider.bind(this));
         this.$leftArrow.addEventListener('click', this._leftMove.bind(this));
         this.$rightArrow.addEventListener('click', this._rightMove.bind(this));
+        this.$area.addEventListener('keydown', this._keys.bind(this));
     }
 
     _toggleSlider() {
@@ -67,6 +68,14 @@ class Gallery {
         this.$sliderHolder.innerHTML = "";
         this.$sliderHolder.appendChild(image);
     }
+
+    _keys(e) {
+        if (e.keyCode == 37) {
+            this._leftMove();
+        } else if (e.keyCode == 39) {
+            this._rightMove();
+        }
+    }
 }
 
 function buildImage(url) {
@@ -87,7 +96,6 @@ function createList(arr) {
     })
 
 };
-
 
 window.addEventListener('DOMContentLoaded', function() {
     let galleryElement = document.querySelector('#gallery');
