@@ -1,4 +1,9 @@
-var images = ["images/cat1.jpg",
+var LEFT_ARROW = 37;
+var RIGHT_ARROW = 39;
+var ESCAPE = 27;
+
+var images = [
+    "images/cat1.jpg",
     "images/cat2.jpg",
     "images/cat3.jpg",
     "images/cat4.jpg",
@@ -17,7 +22,7 @@ class Gallery {
         this.$list = document.querySelector('#list');
 
         this._setupEvents();
-        this._toggleSlider();
+        this._closeSlider();
 
         createList(images).map((value) => {
             this.$list.appendChild(value);
@@ -26,13 +31,13 @@ class Gallery {
 
     _setupEvents() {
         this.$content.addEventListener('click', this._onImgClick.bind(this));
-        this.$close.addEventListener('click', this._toggleSlider.bind(this));
+        this.$close.addEventListener('click', this._closeSlider.bind(this));
         this.$leftArrow.addEventListener('click', this._leftMove.bind(this));
         this.$rightArrow.addEventListener('click', this._rightMove.bind(this));
-        this.$area.addEventListener('keydown', this._keys.bind(this));
+        document.addEventListener('keydown', this._keys.bind(this));
     }
 
-    _toggleSlider() {
+    _closeSlider() {
         this.$area.style.display = "none";
     }
 
@@ -70,10 +75,16 @@ class Gallery {
     }
 
     _keys(e) {
-        if (e.keyCode == 37) {
-            this._leftMove();
-        } else if (e.keyCode == 39) {
-            this._rightMove();
+        switch (e.keyCode) {
+            case LEFT_ARROW:
+                this._leftMove();
+                break;
+            case RIGHT_ARROW:
+                this._rightMove();
+                break;
+            case ESCAPE:
+                this._closeSlider();
+                break;
         }
     }
 }
